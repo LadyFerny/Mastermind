@@ -21,16 +21,27 @@ public class Combinacion {
 	}
 	
 	public void generaCSecreta(int min, int max) {
-		for(int i = 0; i < MIDA; i++) {
-			int c = (int)(Math.random() * (max - min + 1)+ min);
-			System.out.print(c +" ");
+		boolean tmp = true;
+		while(tmp == true) {
+			for(int i = 0; i < MIDA; i++) {
+				array_combi[i] = (byte)(Math.random() * (max - min + 1)+ min);
+			}	
+			tmp = ComprovarJugada();
 		}
+		//for(int i = 0; i < MIDA; i++)
+			//System.out.print(array_combi[i] +" ");
 
 	}
 	
 	public boolean ComprovarJugada() {
 		boolean tmp = false;
-		
-		return tmp;
+		for(int i = 0; i < MIDA; i++) {
+			for(int j = i + 1; j < MIDA; j++) {
+				if(array_combi[i] == array_combi[j]) {
+					tmp = true;
+				}
+			}
+		}
+	return tmp;
 	}
 }
