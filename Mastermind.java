@@ -1,4 +1,5 @@
 package master_Mind;
+import java.util.Scanner;
 
 public class Mastermind {
 	private int numJugadas;
@@ -14,15 +15,26 @@ public class Mastermind {
 	}
 	
 	public void iniciarJuego() {
-			secreta.generaCSecreta(2, 8);
-			byte[] a = secreta.getArray_Combi();
-	}
-	
-	public void funcion() {
-		iniciarJuego();
+	    System.out.println("Introduce un numero de jugadas [6-20]");
+	    while (6 > numJugadas || numJugadas > 20) {
+		    System.out.print("Numero de jugadas: ");
+		    numJugadas = new Scanner(System.in).nextInt();
+	    }
+	    System.out.println("");
+		secreta.generaCSecreta(2, 8);
 	}
 	
 	public void pedirJugada() {
+		iniciarJuego();
+		for(int i = 0; i < numJugadas; i++) {
+			System.out.println("Jugada " +"["+(i+1) +"]" +":");
+			
+		}
+		
+		
+	}
+	
+	public void verificarJugada() {
 		
 	}
 
